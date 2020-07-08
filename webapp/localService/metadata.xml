@@ -1,0 +1,152 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='FIORI')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZC_ACCOUNTINGDOCPDD_QUERY_CDS" xml:lang="pt" sap:schema-version="1">
+			<EntityType Name="ZC_ACCOUNTINGDOCPDD_QUERYType" sap:label="Query para análise de PDD dos documentos contábeis" sap:semantics="aggregate"
+				sap:content-version="1">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/><Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true"
+					sap:updatable="false" sap:sortable="false"/><Property Name="DocumentDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:text="DocumentDate_T" sap:updatable="false" sap:label="Dt.part.individual" sap:semantics="yearmonthday"/><Property Name="DocumentDate_T" Type="Edm.String" MaxLength="10" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Dt.part.individual (Description)"/><Property Name="Plant" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:text="Plant_T"
+					sap:updatable="false" sap:label="Centro" sap:value-list="standard"/><Property Name="Plant_T" Type="Edm.String" MaxLength="1333" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Centro (Description)"/><Property Name="Customer" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="Customer_T"
+					sap:updatable="false" sap:label="Cliente" sap:value-list="standard"/><Property Name="Customer_T" Type="Edm.String" MaxLength="1333" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Cliente (Description)"/><Property Name="ChartOfAccounts" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:updatable="false" sap:label="Plano de contas"/><Property Name="AccountingDocument" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:updatable="false" sap:label="Partida individual"/><Property Name="GLAccount" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false"
+					sap:label="Conta do Razão"/><Property Name="PostingDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:text="PostingDate_T" sap:updatable="false" sap:label="Data de lançamento" sap:semantics="yearmonthday"/><Property Name="PostingDate_T" Type="Edm.String" MaxLength="10" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Data de lançamento (Description)"/><Property Name="FiscalPeriod" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false"
+					sap:label="Período contábil" sap:value-list="standard"/><Property Name="FiscalYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false"
+					sap:label="Exercício fiscal"/><Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:super-ordinate="ControllingArea" sap:text="CostCenter_T" sap:updatable="false" sap:label="Centro de custo" sap:value-list="standard"/><Property Name="CostCenter_T" Type="Edm.String" MaxLength="40" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Centro de custo (Description)"/><Property Name="AccountingDocumentItem" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:updatable="false" sap:label="Item visão lçto."/><Property Name="GlobalCurrency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false"
+					sap:label="Moeda do relatório" sap:value-list="standard" sap:semantics="currency-code"/><Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false"
+					sap:updatable="false" sap:label="ACC" sap:value-list="standard"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false"
+					sap:label="Empresa"/><Property Name="NetDueAmount" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="NetDueAmount_F" sap:unit="GlobalCurrency" sap:updatable="false" sap:label="Montante Vencido"/><Property Name="NetDueAmount_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Montante Vencido (Formatado)"/><Property Name="OpenAmount" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="OpenAmount_F" sap:unit="GlobalCurrency" sap:updatable="false" sap:label="Montante em Aberto"/><Property Name="OpenAmount_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Montante em Aberto (Formatado)"/><Property Name="PayedAmount" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="PayedAmount_F" sap:unit="GlobalCurrency" sap:updatable="false" sap:label="Montante Recebido"/><Property Name="PayedAmount_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Montante Recebido (Formatado)"/><Property Name="TotalOpenAmount" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="TotalOpenAmount_F" sap:unit="GlobalCurrency" sap:updatable="false" sap:label="Montante em Aberto"/><Property Name="TotalOpenAmount_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Montante em Aberto (Formatado)"/><Property Name="PDDAmount" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="PDDAmount_F" sap:unit="PDDAmount_E" sap:updatable="false" sap:label="Montante Vencido"/><Property Name="PDDAmount_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Montante Vencido (Formatado)"/><Property Name="PDDAmount_E" Type="Edm.String" MaxLength="11" sap:creatable="false" sap:filterable="false" sap:updatable="false"
+					sap:label="Montante Vencido (Unit)"/></EntityType>
+			<EntityType Name="Plant" sap:label="Centro ()" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Plant_ID"/></Key><Property Name="Plant_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:sortable="false" sap:text="Plant_TEXT" sap:label="Centro"
+					sap:creatable="false" sap:updatable="false"/><Property Name="Plant_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Centro (Description)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Customer" sap:label="Cliente ()" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Customer_ID"/></Key><Property Name="Customer_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:sortable="false" sap:text="Customer_TEXT"
+					sap:label="Cliente" sap:creatable="false" sap:updatable="false"/><Property Name="Customer_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Cliente (Description)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="FiscalPeriod" sap:label="Período contábil ()" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="FiscalPeriod_ID"/></Key><Property Name="FiscalPeriod_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:sortable="false" sap:text="FiscalPeriod_TEXT"
+					sap:label="Período contábil" sap:creatable="false" sap:updatable="false"/><Property Name="FiscalPeriod_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Período contábil (Description)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CostCenter" sap:label="Centro de custo ()" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CostCenter_ID"/></Key><Property Name="CostCenter_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:sortable="false" sap:text="CostCenter_TEXT"
+					sap:label="Centro de custo" sap:creatable="false" sap:updatable="false"/><Property Name="CostCenter_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Centro de custo (Description)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="GlobalCurrency" sap:label="Moeda do relatório ()" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="GlobalCurrency_ID"/></Key><Property Name="GlobalCurrency_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:sortable="false" sap:text="GlobalCurrency_TEXT"
+					sap:label="Moeda do relatório" sap:creatable="false" sap:updatable="false"/><Property Name="GlobalCurrency_TEXT" Type="Edm.String" sap:sortable="false" sap:label="Moeda do relatório (Description)"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ControllingArea" sap:label="ACC ()" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="ControllingArea_ID"/></Key><Property Name="ControllingArea_ID" Type="Edm.String" Nullable="false" MaxLength="30" sap:sortable="false" sap:text="ControllingArea_TEXT"
+					sap:label="ACC" sap:creatable="false" sap:updatable="false"/><Property Name="ControllingArea_TEXT" Type="Edm.String" sap:sortable="false" sap:label="ACC (Description)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ODataQueryAdditionalMetadata" sap:content-version="1">
+				<Key><PropertyRef Name="ODataQueryMetadata"/></Key><Property Name="ODataQueryMetadata" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZC_ACCOUNTINGDOCPDD_QUERY_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZC_ACCOUNTINGDOCPDD_QUERY" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="Plant" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.Plant" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:content-version="1"/><EntitySet Name="Customer" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.Customer" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="FiscalPeriod" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.FiscalPeriod" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="CostCenter" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.CostCenter" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="GlobalCurrency" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.GlobalCurrency" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="ControllingArea" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ControllingArea" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="AdditionalMetadata" EntityType="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ODataQueryAdditionalMetadata" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/></EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType/Plant">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Centro ( )"/><PropertyValue Property="CollectionPath" String="Plant"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/><PropertyValue Property="ValueListProperty" String="Plant_ID"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Plant_TEXT"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType/Customer">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Cliente ( )"/><PropertyValue Property="CollectionPath" String="Customer"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Customer"/><PropertyValue Property="ValueListProperty" String="Customer_ID"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Customer_TEXT"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType/FiscalPeriod">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Período contábil ( )"/><PropertyValue Property="CollectionPath" String="FiscalPeriod"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="FiscalPeriod"/><PropertyValue Property="ValueListProperty" String="FiscalPeriod_ID"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType/CostCenter">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Centro de custo ( )"/><PropertyValue Property="CollectionPath" String="CostCenter"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CostCenter"/><PropertyValue Property="ValueListProperty" String="CostCenter_ID"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CostCenter_TEXT"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType/GlobalCurrency">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Moeda do relatório ( )"/><PropertyValue Property="CollectionPath" String="GlobalCurrency"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="GlobalCurrency"/><PropertyValue Property="ValueListProperty" String="GlobalCurrency_ID"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZC_ACCOUNTINGDOCPDD_QUERY_CDS.ZC_ACCOUNTINGDOCPDD_QUERYType/ControllingArea">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="ACC ( )"/><PropertyValue Property="CollectionPath" String="ControllingArea"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ControllingArea"/><PropertyValue Property="ValueListProperty" String="ControllingArea_ID"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZC_ACCOUNTINGDOCPDD_QUERY_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZC_ACCOUNTINGDOCPDD_QUERY_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
