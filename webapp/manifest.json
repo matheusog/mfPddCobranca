@@ -140,7 +140,7 @@
 					"settings": {
 						"condensedTableLayout": true,
 						"showGoButtonOnFilterBar": true,
-						"tableType": "ResponsiveTable",
+						"tableType": "AnalyticalTable",
 						"multiSelect": false,
 						"qualifier": "pddSelectionPresV",
 						"autoHide": true,
