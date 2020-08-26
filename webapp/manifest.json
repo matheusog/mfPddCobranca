@@ -1,6 +1,7 @@
 {
 	"_version": "1.7.0",
 	"sap.app": {
+		"_version": "1.3.0",
 		"id": "com.mf.sap.fi.cobrancas.PDDAnalysis",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
@@ -42,9 +43,21 @@
 		"sourceTemplate": {
 			"id": "ALP_WebIDE_Plugin.analyticallistpage",
 			"version": "1.41.1"
+		},
+		"crossNavigation": {
+			"inbounds": {},
+			"outbounds": {
+				"AccDocuments": {
+					"semanticObject": "MFCobranca",
+					"action": "docsDisplay",
+					"additionalParameters": "allowed",
+					"parameters": {}
+				}
+			}
 		}
 	},
 	"sap.ui": {
+		"_version": "1.3.0",
 		"technology": "UI5",
 		"icons": {
 			"icon": "",
@@ -65,6 +78,7 @@
 		]
 	},
 	"sap.ui5": {
+		"_version": "1.2.0",
 		"resources": {
 			"js": [],
 			"css": []
@@ -80,13 +94,15 @@
 				},
 				"sap.ui.generic.app": {
 					"lazy": false
+				},
+				"sap.viz": {
+					"minVersion": ""
 				}
 			},
 			"components": {}
 		},
 		"models": {
 			"i18n": {
-				"preload": false,
 				"type": "sap.ui.model.resource.ResourceModel",
 				"uri": "i18n/i18n.properties",
 				"settings": {
@@ -106,7 +122,6 @@
 				"uri": "i18n/ObjectPage/ZC_ACCOUNTINGDOCPDD_QUERY/i18n.properties"
 			},
 			"": {
-				"preload": true,
 				"dataSource": "mainService",
 				"settings": {
 					"defaultBindingMode": "TwoWay",
@@ -119,7 +134,14 @@
 			}
 		},
 		"extends": {
-			"extensions": {}
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.suite.ui.generic.template.AnalyticalListPage.view.AnalyticalListPage": {
+						"controllerName": "com.mf.sap.fi.cobrancas.PDDAnalysis.ext.controller.AnalyticalListPageExtension",
+						"sap.ui.generic.app": {}
+					}
+				}
+			}
 		},
 		"contentDensities": {
 			"compact": true,
@@ -138,21 +160,37 @@
 					"name": "sap.suite.ui.generic.template.AnalyticalListPage",
 					"list": true,
 					"settings": {
-						"condensedTableLayout": true,
-						"showGoButtonOnFilterBar": true,
-						"tableType": "AnalyticalTable",
 						"multiSelect": false,
+						"tableType": "AnalyticalTable",
 						"qualifier": "pddSelectionPresV",
-						"autoHide": true,
+						"condensedTableLayout": true,
 						"smartVariantManagement": true,
+						"defaultContentView": "charttable",
+						"defaultFilterMode": "compact",
+						"showGoButtonOnFilterBar": true,
+						"autoHide": true,
 						"keyPerformanceIndicators": {}
 					}
 				},
-				"pages": {}
+				"pages": {
+					"ObjectPage|ZC_ACCOUNTINGDOCPDD_QUERY": {
+						"entitySet": "ZC_ACCOUNTINGDOCPDD_QUERY",
+						"component": {
+							"name": "sap.suite.ui.generic.template.ObjectPage"
+						},
+						"navigation": {
+							"display": {
+								"path": "sap.apps.crossNavigation.outbounds",
+								"target": "AccDocuments"
+							}
+						}
+					}
+				}
 			}
 		}
 	},
 	"sap.platform.hcp": {
+		"_version": "1.2.0",
 		"uri": ""
 	}
 }
