@@ -20,6 +20,13 @@ sap.ui.define([
 			this.adaptNavigationParameter(oSelectionVariant, oObjectInfo); 
 		},
 		
+		onBeforeRebindChartExtension: function(oEvent) {
+			var oSmartChart = oEvent.getSource();
+            var oProp = oSmartChart.getChart().getVizProperties(); 
+			oProp.plotArea.dataLabel.visible = true; 
+			oSmartChart.getChart().setVizProperties(oProp);
+		}, 
+		
 		_changeChartDefaultSettings: function(oChart) {
             oChart.setShowDownloadButton(true);
         }, 
