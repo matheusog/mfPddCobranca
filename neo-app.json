@@ -5,19 +5,19 @@
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
-        "name": "MF_S4D_300",
+        "name": "MF_S4D_400",
         "entryPath": "/sap/opu/odata"
       },
-      "description": "MF S4D 300"
+      "description": "MF S4D 400"
     },
     {
       "path": "/sap/bc/lrep",
       "target": {
         "type": "destination",
-        "name": "MF_S4D_300",
+        "name": "MF_S4D_400",
         "entryPath": "/sap/bc/lrep"
       },
-      "description": "MF_S4D_300"
+      "description": "MF_S4D_400"
     },
     {
       "path": "/resources",
