@@ -4,7 +4,7 @@
   "description": "",
   "devDependencies": {
     "@ui5/cli": "1.7.0",
-    "@sap/ui5-builder-webide-extension": "1.0.14"
+    "@sap/ui5-builder-webide-extension": "1.1.8"
   },
   "scripts": {
     "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo --exclude-task escapeNonAsciiCharacters"
